@@ -1,13 +1,21 @@
 package com.rea_group.toyrobot.model;
 
-public class Board {
+import lombok.Getter;
+import lombok.NonNull;
 
-    public static final int MAX_UNITS = 5;
+class Board {
 
-    private Robot robot;
+    @Getter private final int maxUnits;
 
-    public Board() {
-        this.robot = new Robot(new Coordinates(0, 0), Direction.NORTH);
+    static Board ofMaxUnits(int maxUnits) {
+        return new Board(maxUnits);
     }
 
+    private Board(int maxUnits) {
+        this.maxUnits = maxUnits;
+    }
+
+    public boolean isValidCoordinate(@NonNull Coordinates coordinates) {
+        return coordinates.getX() < this.maxUnits && coordinates.getY() < this.maxUnits;
+    }
 }

@@ -9,14 +9,14 @@ import lombok.RequiredArgsConstructor;
 public class Robot {
 
     @NonNull private Coordinates coordinates;
-    @NonNull private Direction direction;
+    @NonNull private CardinalDirection cardinalDirection;
 
     public void turnLeft() {
-        this.direction = direction.getLeft();
+        this.cardinalDirection = cardinalDirection.getLeft();
     }
 
     public void turnRight() {
-        this.direction = direction.getRight();
+        this.cardinalDirection = cardinalDirection.getRight();
     }
 
 }
