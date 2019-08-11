@@ -11,7 +11,7 @@ public class ToyRobotImplApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		System.exit(0);
+		System.exit(1);
 	}
 
 }

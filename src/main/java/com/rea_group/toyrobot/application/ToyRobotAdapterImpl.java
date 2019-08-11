@@ -31,6 +31,10 @@ public class ToyRobotAdapterImpl implements ToyRobotAdapter {
             case "PLACE":
                 CardinalDirection cardinalDirection;
                 try {
+                    if (commands.length != 4) {
+                        System.out.println("Please use the format 'PLACE X Y FACING'");
+                        return;
+                    }
                     cardinalDirection = CardinalDirection.valueOf(commands[3]);
                     place(Integer.parseInt(commands[1]), Integer.parseInt(commands[2]), cardinalDirection);
                 } catch (Exception e) {
