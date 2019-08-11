@@ -11,8 +11,8 @@ public class Game {
     private final Robot robot;
     private final Board board;
 
-    public Game(@NonNull Robot robot) {
-        this.robot = robot;
+    public Game() {
+        this.robot = new Robot(new Coordinates(0, 0), CardinalDirection.NORTH);
         this.board = Board.ofMaxUnits(BOARD_UNIT_CONSTRAINTS);
     }
 

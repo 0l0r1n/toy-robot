@@ -17,10 +17,12 @@ public enum CardinalDirection {
 
     public CardinalDirection getRight() {
         val cardinalDirections = CardinalDirection.values();
-        if (this.ordinal() < cardinalDirections.length - 1)
+        if (this.ordinal() < cardinalDirections.length - 1){
             return cardinalDirections[this.ordinal() + 1];
-        else
+        }
+        else {
             return cardinalDirections[0];
+        }
     }
 
 }
