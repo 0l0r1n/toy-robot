@@ -16,6 +16,6 @@ public class Board {
     }
 
     public boolean isValidCoordinate(@NonNull Coordinates coordinates) {
-        return coordinates.getX() < this.maxUnits && coordinates.getY() < this.maxUnits;
+        return coordinates.getX() <= this.maxUnits && coordinates.getY() <= this.maxUnits;
     }
 }

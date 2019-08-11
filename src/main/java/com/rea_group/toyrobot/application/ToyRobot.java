@@ -12,12 +12,12 @@ public class Game {
     private final Robot robot;
     private final Board board;
 
-    public Game() {
+    Game() {
         this.robot = new Robot(new Coordinates(0, 0), CardinalDirection.NORTH);
         this.board = Board.ofMaxUnits(BOARD_UNIT_CONSTRAINTS);
     }
 
-    public void placeRobot(@NonNull Coordinates nextCoordinates, @NonNull CardinalDirection cardinalDirection) {
+    void placeRobot(@NonNull Coordinates nextCoordinates, @NonNull CardinalDirection cardinalDirection) {
         if (this.board.isValidCoordinate(nextCoordinates)) {
             this.robot.setCoordinates(nextCoordinates);
             this.robot.setCardinalDirection(cardinalDirection);
@@ -26,7 +26,7 @@ public class Game {
         }
     }
 
-    public void moveRobot() {
+    void moveRobot() {
         val nextCoordinates = getNextForwardCoordinate();
         if (this.board.isValidCoordinate(nextCoordinates)) {
             this.robot.setCoordinates(nextCoordinates);
@@ -35,7 +35,7 @@ public class Game {
         }
     }
 
-    public void turnRobot(@NonNull Direction direction) {
+    void turnRobot(@NonNull Direction direction) {
         if (direction == Direction.LEFT) {
             this.robot.turnLeft();
         }
@@ -44,7 +44,7 @@ public class Game {
         }
     }
 
-    public String report() {
+    String report() {
         return "Robot current at coordinates X " + this.robot.getCoordinates().getX() +
                 ", Y " + this.robot.getCoordinates().getY() +
                 " facing " + this.robot.getCardinalDirection();
@@ -56,8 +56,8 @@ public class Game {
     }
 
     private Coordinates getNextForwardCoordinate() {
-        val x = this.robot.getCoordinates().getX();
-        val y = this.robot.getCoordinates().getY();
+        int x = this.robot.getCoordinates().getX();
+        int y = this.robot.getCoordinates().getY();
         switch (this.robot.getCardinalDirection()) {
             case NORTH:
                 y++;
