@@ -5,14 +5,14 @@ import com.rea_group.toyrobot.model.*;
 import lombok.NonNull;
 import lombok.val;
 
-public class Game {
+public class ToyRobot {
 
     private static final int BOARD_UNIT_CONSTRAINTS = 5;
 
     private final Robot robot;
     private final Board board;
 
-    Game() {
+    ToyRobot() {
         this.robot = new Robot(new Coordinates(0, 0), CardinalDirection.NORTH);
         this.board = Board.ofMaxUnits(BOARD_UNIT_CONSTRAINTS);
     }

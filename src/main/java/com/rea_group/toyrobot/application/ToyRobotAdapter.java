@@ -6,12 +6,12 @@ import com.rea_group.toyrobot.model.Direction;
 import lombok.NonNull;
 import lombok.val;
 
-public class GameAdapter {
+public class ToyRobotAdapter {
 
-    private final Game game;
+    private final ToyRobot toyRobot;
 
-    public GameAdapter() {
-        this.game = new Game();
+    public ToyRobotAdapter() {
+        this.toyRobot = new ToyRobot();
     }
 
     public void evaluateInput(@NonNull String input) {
@@ -45,7 +45,7 @@ public class GameAdapter {
 
     private void move() {
         try {
-            game.moveRobot();
+            toyRobot.moveRobot();
         } catch (RuntimeException e) {
             System.out.println("Unable to move forward, robot would fallout the table");
         }
@@ -53,7 +53,7 @@ public class GameAdapter {
 
     private void place(int x, int y, CardinalDirection cardinalDirection) {
         try {
-            this.game.placeRobot(new Coordinates(x, y), cardinalDirection);
+            this.toyRobot.placeRobot(new Coordinates(x, y), cardinalDirection);
         } catch (RuntimeException e) {
             System.out.println("Unable to place robot. Please respect the boards's constraints.");
         }
@@ -61,10 +61,10 @@ public class GameAdapter {
     }
 
     private void turn(Direction direction) {
-        this.game.turnRobot(direction);
+        this.toyRobot.turnRobot(direction);
     }
 
     private void report() {
-        System.out.println(this.game.report());
+        System.out.println(this.toyRobot.report());
     }
 }
