@@ -9,8 +9,7 @@ public enum CardinalDirection {
         val cardinalDirections = CardinalDirection.values();
         if (this.ordinal() == 0) {
             return cardinalDirections[cardinalDirections.length - 1];
-        }
-        else {
+        } else {
             return cardinalDirections[this.ordinal() - 1];
         }
     }
@@ -19,8 +18,7 @@ public enum CardinalDirection {
         val cardinalDirections = CardinalDirection.values();
         if (this.ordinal() < cardinalDirections.length - 1){
             return cardinalDirections[this.ordinal() + 1];
-        }
-        else {
+        } else {
             return cardinalDirections[0];
         }
     }
