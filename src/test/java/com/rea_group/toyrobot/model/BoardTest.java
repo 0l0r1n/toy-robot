@@ -1,5 +1,6 @@
 package com.rea_group.toyrobot.model;
 
+import lombok.val;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,14 +18,13 @@ public class BoardTest {
 
     @Test
     public void shouldReturnTrueForValidCoordinates() {
-        Board board = Board.ofMaxUnits(3);
+        val board = Board.ofMaxUnits(3);
         assertTrue(board.isValidCoordinate(coordinates));
     }
 
     @Test
     public void shouldReturnFalseForInvalidCoordinates() {
-        Board board = Board.ofMaxUnits(1);
-        Coordinates coordinates = new Coordinates(2, 2);
+        val board = Board.ofMaxUnits(1);
         assertFalse(board.isValidCoordinate(coordinates));
     }
 }
