@@ -1,6 +1,7 @@
-package com.rea_group.toyrobot.model;
+package com.rea_group.toyrobot.application;
 
 
+import com.rea_group.toyrobot.model.*;
 import lombok.NonNull;
 import lombok.val;
 

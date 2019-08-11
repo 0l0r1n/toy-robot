@@ -3,11 +3,11 @@ package com.rea_group.toyrobot.model;
 import lombok.Getter;
 import lombok.NonNull;
 
-class Board {
+public class Board {
 
     @Getter private final int maxUnits;
 
-    static Board ofMaxUnits(int maxUnits) {
+    public static Board ofMaxUnits(int maxUnits) {
         return new Board(maxUnits);
     }
 
@@ -15,7 +15,7 @@ class Board {
         this.maxUnits = maxUnits;
     }
 
-    boolean isValidCoordinate(@NonNull Coordinates coordinates) {
+    public boolean isValidCoordinate(@NonNull Coordinates coordinates) {
         return coordinates.getX() < this.maxUnits && coordinates.getY() < this.maxUnits;
     }
 }

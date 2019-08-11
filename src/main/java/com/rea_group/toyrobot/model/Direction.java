@@ -1,5 +1,5 @@
 package com.rea_group.toyrobot.model;
 
-enum Direction {
+public enum Direction {
     LEFT, RIGHT
 }

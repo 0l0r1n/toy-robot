@@ -27,9 +27,9 @@ Create an application that can read in commands of the following (textual) form:
   sequence of commands may be issued, in any order, including another PLACE
   command. The application should discard all commands in the sequence until
   a valid PLACE command has been executed.
-- MOVE will move the toy robot one unit forward in the direction it is
+- MOVE will move the toy robot one unit forward in the cardinalDirection it is
   currently facing.
-- LEFT and RIGHT will rotate the robot 90 degrees in the specified direction
+- LEFT and RIGHT will rotate the robot 90 degrees in the specified cardinalDirection
   without changing the position of the robot.
 - REPORT will announce the X,Y and F of the robot. This can be in any form,
   but standard output is sufficient.

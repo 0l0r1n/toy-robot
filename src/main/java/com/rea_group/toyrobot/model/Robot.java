@@ -6,16 +6,16 @@ import lombok.RequiredArgsConstructor;
 
 @Data
 @RequiredArgsConstructor
-class Robot {
+public class Robot {
 
     @NonNull private Coordinates coordinates;
     @NonNull private CardinalDirection cardinalDirection;
 
-    void turnLeft() {
+    public void turnLeft() {
         this.cardinalDirection = cardinalDirection.getLeft();
     }
 
-    void turnRight() {
+    public void turnRight() {
         this.cardinalDirection = cardinalDirection.getRight();
     }
 

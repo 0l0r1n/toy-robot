@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 
 @Data
 @RequiredArgsConstructor
-class Coordinates {
+public class Coordinates {
 
     @NonNull private int x;
     @NonNull private int y;
