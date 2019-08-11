@@ -15,7 +15,7 @@ class Board {
         this.maxUnits = maxUnits;
     }
 
-    public boolean isValidCoordinate(@NonNull Coordinates coordinates) {
+    boolean isValidCoordinate(@NonNull Coordinates coordinates) {
         return coordinates.getX() < this.maxUnits && coordinates.getY() < this.maxUnits;
     }
 }
