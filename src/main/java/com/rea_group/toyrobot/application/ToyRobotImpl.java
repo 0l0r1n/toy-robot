@@ -15,8 +15,12 @@ class ToyRobotImpl implements ToyRobot {
     private final Board board;
 
     ToyRobotImpl() {
-        this.robot = new Robot(new Coordinates(0, 0), CardinalDirection.NORTH);
         this.board = Board.ofMaxUnits(BOARD_UNIT_CONSTRAINTS);
+        robot = Robot
+                .builder()
+                .coordinates(new Coordinates(0, 0))
+                .cardinalDirection(CardinalDirection.NORTH)
+                .build();
     }
 
     public void placeRobot(@NonNull Coordinates nextCoordinates, @NonNull CardinalDirection cardinalDirection) {
