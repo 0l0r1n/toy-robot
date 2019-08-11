@@ -3,7 +3,7 @@ package com.rea_group.toyrobot.model;
 import lombok.val;
 
 public enum CardinalDirection {
-    NORTH, SOUTH, EAST, WEST;
+    NORTH, EAST, SOUTH, WEST;
 
     public CardinalDirection getLeft() {
         val cardinalDirections = CardinalDirection.values();
