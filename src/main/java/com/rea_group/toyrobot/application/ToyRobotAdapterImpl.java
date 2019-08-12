@@ -53,7 +53,7 @@ public class ToyRobotAdapterImpl implements ToyRobotAdapter {
         try {
             toyRobot.moveRobot();
         } catch (RuntimeException e) {
-            System.out.println("Unable to move forward, robot would fallout the table");
+            System.out.println("Unable to move forward, robot would fall off the table");
         }
     }
 
