@@ -33,8 +33,9 @@ public class ToyRobotApplication implements CommandLineRunner {
 		String input;
 		do {
 			input = sc.nextLine();
+			if (input.equals("DONE")) break;
 			toyRobotAdapter.evaluateInput(input);
-		} while (!input.equals("DONE"));
+		} while (true);
 		System.out.println("Shutting down application");
 	}
 }

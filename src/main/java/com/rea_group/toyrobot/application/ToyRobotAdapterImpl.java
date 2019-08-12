@@ -71,6 +71,8 @@ public class ToyRobotAdapterImpl implements ToyRobotAdapter {
     }
 
     private void report() {
-        System.out.println(this.toyRobot.report());
+        System.out.println("Robot current at coordinates X " + this.toyRobot.getRobotCoordinates().getX() +
+                ", Y " + this.toyRobot.getRobotCoordinates().getY() +
+                " facing " + this.toyRobot.getRobotCardinalDirection());
     }
 }

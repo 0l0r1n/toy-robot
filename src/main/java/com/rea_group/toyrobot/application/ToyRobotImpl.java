@@ -49,10 +49,14 @@ class ToyRobotImpl implements ToyRobot {
         }
     }
 
-    public String report() {
-        return "Robot current at coordinates X " + this.robot.getCoordinates().getX() +
-                ", Y " + this.robot.getCoordinates().getY() +
-                " facing " + this.robot.getCardinalDirection();
+    @Override
+    public Coordinates getRobotCoordinates() {
+        return this.robot.getCoordinates();
+    }
+
+    @Override
+    public CardinalDirection getRobotCardinalDirection() {
+        return this.robot.getCardinalDirection();
     }
 
     private void throwInvalidCoordinatesException() {

@@ -11,6 +11,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ToyRobotAdapterImplTest {
@@ -37,8 +38,11 @@ public class ToyRobotAdapterImplTest {
 
     @Test
     public void shouldCallToyRobotReportWhenReportCommandIsPassed() {
+        when(toyRobot.getRobotCoordinates()).thenReturn(new Coordinates(0, 0));
+        when(toyRobot.getRobotCardinalDirection()).thenReturn(CardinalDirection.NORTH);
         toyRobotAdapter.evaluateInput("REPORT");
-        Mockito.verify(toyRobot, Mockito.times(1)).report();
+        Mockito.verify(toyRobot, Mockito.times(2)).getRobotCoordinates();
+        Mockito.verify(toyRobot, Mockito.times(1)).getRobotCardinalDirection();
     }
 
     @Test

@@ -9,5 +9,6 @@ public interface ToyRobot {
     void placeRobot(@NonNull Coordinates nextCoordinates, @NonNull CardinalDirection cardinalDirection);
     void moveRobot();
     void turnRobot(@NonNull Direction direction);
-    String report();
+    Coordinates getRobotCoordinates();
+    CardinalDirection getRobotCardinalDirection();
 }

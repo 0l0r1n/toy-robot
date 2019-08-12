@@ -1,13 +1,12 @@
 package com.rea_group.toyrobot.model;
 
-import lombok.Data;
+import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-@Data
 @RequiredArgsConstructor
 public class Coordinates {
 
-    @NonNull private int x;
-    @NonNull private int y;
+    @NonNull @Getter private final int x;
+    @NonNull @Getter private final int y;
 }
