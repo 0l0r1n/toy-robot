@@ -1,5 +1,6 @@
 package com.rea_group.toyrobot;
 
+import lombok.val;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,16 +22,20 @@ public class ToyRobotImplApplicationTests {
 
 	@Test
 	public void shouldPrintCorrectReportsIT() {
-		assertTrue(out.toString().contains("Robot current at coordinates X 0, Y 0 facing NORTH"));
-		assertTrue(out.toString().contains("Robot current at coordinates X 0, Y 3 facing NORTH"));
-		assertTrue(out.toString().contains("Robot current at coordinates X 0, Y 3 facing EAST"));
-		assertTrue(out.toString().contains("Robot current at coordinates X 0, Y 3 facing EAST"));
-		assertTrue(out.toString().contains("Robot current at coordinates X 4, Y 3 facing SOUTH"));
+		val output = out.toString();
+		assertTrue(output.contains("Please start by providing the starting point of your robot"));
+		assertTrue(output.contains("Robot current at coordinates X 0, Y 0 facing NORTH"));
+		assertTrue(output.contains("Robot current at coordinates X 0, Y 3 facing NORTH"));
+		assertTrue(output.contains("Robot current at coordinates X 0, Y 3 facing EAST"));
+		assertTrue(output.contains("Robot current at coordinates X 0, Y 3 facing EAST"));
+		assertTrue(output.contains("Robot current at coordinates X 4, Y 3 facing SOUTH"));
+		assertTrue(output.contains("Unable to move forward, robot would fall off the table"));
 	}
 
 	@BeforeClass
 	public static void beforeClassSetup() {
-		String commandSequence = "PLACE 0 0 NORTH\nREPORT\nMOVE\nMOVE\nMOVE\nREPORT\nRIGHT\nREPORT\nPLACE 4 4 SOUTH\nMOVE\nREPORT\nDONE\n";
+		String commandSequence = "MOVE\nPLACE 0 0 NORTH\nREPORT\nMOVE\nMOVE\nMOVE\nREPORT\nRIGHT\nREPORT\nPLACE 4 4 SOUTH\n" +
+				"MOVE\nREPORT\nMOVE\nMOVE\nMOVE\nMOVE\nDONE\n";
 		InputStream in = new ByteArrayInputStream(commandSequence.getBytes());
 		System.setIn(in);
 		out = new ByteArrayOutputStream();
