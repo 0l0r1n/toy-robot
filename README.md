@@ -20,6 +20,21 @@ Run the command below to start off the application
 mvn spring-boot:run
 ```
 
+## Interacting with it
+
+The first command you need to submit is the PLACE command along with X and Y coordinates and a facing cardinal direction. Example:
+
+```
+PLACE 3 3 WEST
+```
+
+After that any of the following commands is valid:
+
+- MOVE - will move the robot forward by one unit, depending on the direction
+- PLACE X Y F - where X and Y are integers greater or equal to 0 and F is the facing cardinal direction
+- LEFT - turns robot left
+- RIGHT - turns robot right
+- REPORT - reports position the robot on the board
 
 ## Testing
 
