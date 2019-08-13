@@ -30,7 +30,7 @@ public class ToyRobotImplApplicationTests {
 
 	@BeforeClass
 	public static void beforeClassSetup() {
-		String commandSequence = "REPORT\nMOVE\nMOVE\nMOVE\nREPORT\nRIGHT\nREPORT\nPLACE 4 4 SOUTH\nMOVE\nREPORT\nDONE\n";
+		String commandSequence = "PLACE 0 0 NORTH\nREPORT\nMOVE\nMOVE\nMOVE\nREPORT\nRIGHT\nREPORT\nPLACE 4 4 SOUTH\nMOVE\nREPORT\nDONE\n";
 		InputStream in = new ByteArrayInputStream(commandSequence.getBytes());
 		System.setIn(in);
 		out = new ByteArrayOutputStream();

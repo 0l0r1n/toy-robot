@@ -24,12 +24,14 @@ public class ToyRobotAdapterImplTest {
 
     @Test
     public void shouldCallToyRobotMoveWhenMoveCommandIsPassed() {
+        toyRobotAdapter.evaluateInput("PLACE 0 0 NORTH");
         toyRobotAdapter.evaluateInput("MOVE");
         Mockito.verify(toyRobot, Mockito.times(1)).moveRobot();
     }
 
     @Test
     public void shouldCallToyRobotToTurnWhenTurnCommandIsPassed() {
+        toyRobotAdapter.evaluateInput("PLACE 0 0 NORTH");
         toyRobotAdapter.evaluateInput("LEFT");
         toyRobotAdapter.evaluateInput("RIGHT");
         Mockito.verify(toyRobot, Mockito.times(1)).turnRobot(Direction.LEFT);
@@ -40,6 +42,7 @@ public class ToyRobotAdapterImplTest {
     public void shouldCallToyRobotReportWhenReportCommandIsPassed() {
         when(toyRobot.getRobotCoordinates()).thenReturn(new Coordinates(0, 0));
         when(toyRobot.getRobotCardinalDirection()).thenReturn(CardinalDirection.NORTH);
+        toyRobotAdapter.evaluateInput("PLACE 1 2 NORTH");
         toyRobotAdapter.evaluateInput("REPORT");
         Mockito.verify(toyRobot, Mockito.times(2)).getRobotCoordinates();
         Mockito.verify(toyRobot, Mockito.times(1)).getRobotCardinalDirection();
