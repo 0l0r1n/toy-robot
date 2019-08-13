@@ -29,6 +29,7 @@ public class ToyRobotApplication implements CommandLineRunner {
 				"RIGHT: robot turns right" + newLine +
 				"REPORT: indicates the position of the robot" + newLine +
 				"PLACE X Y FACING: robot is placed on the provided X, Y coordinates facing a cardinal point" + newLine +
+				"Please start by providing a valid starting position for ToyRobot using PLACE. Have fun!" + newLine +
 				"DONE: program will shutdown");
 		Scanner sc = new Scanner(System.in);
 		String input;

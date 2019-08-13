@@ -10,42 +10,65 @@ import org.springframework.stereotype.Component;
 @Component
 public class ToyRobotAdapterImpl implements ToyRobotAdapter {
 
+    private static final String PLACE_ERROR_MESSAGE = "Please use the format 'PLACE X Y FACING' WHERE X and Y are both numbers" +
+                                                      " and FACING is a valid cardinal point";
+    private boolean robotPlaced;
     private ToyRobot toyRobot;
 
     public ToyRobotAdapterImpl(ToyRobot toyRobot) {
         this.toyRobot = toyRobot;
+        this.robotPlaced = false;
     }
 
     public void evaluateInput(@NonNull String input) {
-        val commands = input.split("\\s");
-        switch (commands[0]) {
-            case "MOVE":
-                move();
-                break;
-            case "LEFT":
-                turn(Direction.LEFT);
-                break;
-            case "RIGHT":
-                turn(Direction.RIGHT);
-                break;
-            case "PLACE":
-                CardinalDirection cardinalDirection;
-                try {
-                    if (commands.length != 4) {
-                        System.out.println("Please use the format 'PLACE X Y FACING'");
-                        return;
-                    }
-                    cardinalDirection = CardinalDirection.valueOf(commands[3]);
-                    place(Integer.parseInt(commands[1]), Integer.parseInt(commands[2]), cardinalDirection);
-                } catch (Exception e) {
-                    System.out.println("Provided cardinal direction " + commands[3] + " not valid");
-                }
-                break;
-            case "REPORT":
-                report();
-                break;
-            default:
-                System.out.println("Invalid input.");
+        val inputs = input.split("\\s");
+        if (robotPlaced) {
+            switch (inputs[0]) {
+                case "MOVE":
+                    move();
+                    break;
+                case "LEFT":
+                    turn(Direction.LEFT);
+                    break;
+                case "RIGHT":
+                    turn(Direction.RIGHT);
+                    break;
+                case "PLACE":
+                    evaluatePlaceInstructions(inputs);
+                    break;
+                case "REPORT":
+                    report();
+                    break;
+                default:
+                    System.out.println("Invalid input.");
+            }
+        } else {
+            if (inputs[0].equals("PLACE")) {
+                evaluatePlaceInstructions(inputs);
+            } else {
+                System.out.println("Please start by providing the starting point of your robot");
+            }
+        }
+    }
+
+    private void evaluatePlaceInstructions(String[] inputs) {
+        CardinalDirection cardinalDirection;
+        try {
+            if (inputs.length != 4) {
+                System.out.println(PLACE_ERROR_MESSAGE);
+                return;
+            }
+            val x = Integer.parseInt(inputs[1]);
+            val y = Integer.parseInt(inputs[2]);
+            if (x < 0 || y < 0) {
+                System.out.println("Please provide x and y coordinates greater or equal to 0");
+                return;
+            }
+            cardinalDirection = CardinalDirection.valueOf(inputs[3]);
+            place(x, y, cardinalDirection);
+            if (!robotPlaced) robotPlaced = true;
+        } catch (Exception e) {
+            System.out.println(PLACE_ERROR_MESSAGE);
         }
     }
 
